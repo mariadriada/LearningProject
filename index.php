@@ -1,10 +1,22 @@
 <?php
 
 require 'vendor/autoload.php';
-//require 'template_test/template1.php';
+
+
+class CustomView extends  \Slim\View
+{
+    public function render($template)
+    {
+       
+        return $template;
+    }
+};
+
 
 // Crea la nueva aplicación
-$app = new \Slim\Slim();
+$app = new \Slim\Slim(array(
+    'view' => new CustomView()
+));
 
 
 // Añade las rutas
@@ -21,6 +33,13 @@ $app->get('/', function() use ($app) {
 $app->get('/saludo/:person', function($person) {
     // Usando parámetros
     echo "Hola " . $person;
+});
+
+$app->get('/vista/', function() use ($app){
+	
+
+	$app->render('<h1>template test</h1>');
+
 });
 
 
