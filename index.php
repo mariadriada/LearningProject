@@ -1,6 +1,7 @@
 <?php
 
 require 'vendor/autoload.php';
+//require 'template_test/template1.php';
 
 // Crea la nueva aplicación
 $app = new \Slim\Slim();
@@ -10,6 +11,7 @@ $app = new \Slim\Slim();
 // Aquí hay un closure. Debemos usar la palabra reservada USE para añadir parámetros
 // Externos!!!!
 $app->get('/', function() use ($app) {
+    
     // Ahora, puedo usar $app dentro del closure!!!!
     var_dump($app->request->isGet());
 
