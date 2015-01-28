@@ -7,7 +7,12 @@ $app = new \Slim\Slim();
 
 
 // Añade las rutas
-$app->get('/', function() {
+// Aquí hay un closure. Debemos usar la palabra reservada USE para añadir parámetros
+// Externos!!!!
+$app->get('/', function() use ($app) {
+    // Ahora, puedo usar $app dentro del closure!!!!
+    var_dump($app->request->isGet());
+
     echo '<h1>Hola Maria!!!!!</h1>';
 });
 
