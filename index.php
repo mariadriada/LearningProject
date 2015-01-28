@@ -18,8 +18,9 @@ $app->get('/', function() use ($app) {
     echo '<h1>Hola Maria!!!!!</h1>';
 });
 
-$app->get('/saludo', function() {
-    echo '<h1>Hola hola hola!!!</h1>';
+$app->get('/saludo/:person', function($person) {
+    // Usando parámetros
+    echo "Hola " . $person;
 });
 
 
